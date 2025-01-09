@@ -1,0 +1,11 @@
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: #424242;
+}
+
+body {
+    background-color: white;
+}
