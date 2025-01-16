@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #424242;
+    font-family: 'Barlow'
 }
 
 body {
@@ -92,4 +93,3 @@ div.menu-price-row {
 span.price-description {
     font-size: 12px;
 }
-
