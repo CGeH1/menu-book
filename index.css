@@ -54,9 +54,10 @@ div.menu-area {
     grid-template-columns: repeat(4, 1fr);
 }
 
-div.menu-type {
+div.menu-tile {
     display: flex;
     flex-direction: column;
+    padding-bottom: 16px;
 }
 
 div.menu-photo img {
