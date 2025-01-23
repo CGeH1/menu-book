@@ -51,7 +51,7 @@ span.price-note {
 
 div.menu-area {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 div.menu-tile {
@@ -93,4 +93,11 @@ div.menu-price-row {
 
 span.price-description {
     font-size: 12px;
+}
+
+@media (min-width: 800px) {
+    div.menu-area {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
 }
