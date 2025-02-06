@@ -11,6 +11,10 @@ body {
     background-color: white;
 }
 
+button {
+    all: unset;
+}
+
 div.appbar {
     display: flex;
     flex-direction: row;
@@ -93,6 +97,21 @@ div.menu-price-row {
 
 span.price-description {
     font-size: 12px;
+}
+
+div.price-and-qty {
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    margin-right: 8px;
+}
+
+#qty {
+    font-size: 12px;
+    width: 16px;
+    text-align: center;
 }
 
 @media (min-width: 600px) {
