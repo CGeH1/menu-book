@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -38,11 +39,11 @@
                 <span class="price-description"></span>
                 <div class="price-and-qty">
                     <span class="price">35</span>
-                    <button>
+                    <button onclick="substractQty()">
                         <img src="assets/circle-minus.png" width="12" height="12" alt="minus-circle" />
                     </button>
                     <span id="qty">0</span>
-                    <button>
+                    <button onclick="addQty()">
                         <img src="assets/circle-plus.png" width="12" height="12" alt="plus-circle" />
                     </button>
                 </div>
