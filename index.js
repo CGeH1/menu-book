@@ -1,7 +1,11 @@
+let qty = 0;
+
 function addQty() {
-    document.getElementById('qty').innerHTML = '1';
+    qty = qty+1
+    document.getElementById('qty').innerHTML = qty;
 }
 
 function substractQty() {
-    document.getElementById('qty').innerHTML = '0';
+    qty = qty-1
+    document.getElementById('qty').innerHTML = qty;
 }
