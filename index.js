@@ -44,12 +44,10 @@ const menus = [{
     }]
 }];
 
-const cart = [
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 0]
-];
+const cart = []
+for (let i = 0; i < menus.length; i++) {
+    cart.push([0, 0])
+}
 
 let menuArea = "";
 
@@ -96,6 +94,8 @@ function addQty(menuIndex, priceIndex) {
 }
 
 function substractQty(menuIndex, priceIndex) {
-    cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex] - 1;
-    document.getElementById("qty" + menuIndex + priceIndex).innerHTML = cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex];
+    if (cart[menuIndex][priceIndex] >= 1) {
+        cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex] - 1;
+        document.getElementById("qty" + menuIndex + priceIndex).innerHTML = cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex];
+    }
 }
