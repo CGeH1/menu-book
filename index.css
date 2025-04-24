@@ -149,7 +149,7 @@ div.price-and-qty {
     right: 0;
     top: 0;
     background-color: #4caf50;
-    /*cursor: pointer;*/
+    cursor: pointer;
     /*height: 100%*/
 }
 
