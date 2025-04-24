@@ -24,6 +24,7 @@ button {
 
 button:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 button:active {
@@ -143,9 +144,13 @@ div.price-and-qty {
 
 .appbar > button {
     all: unset;
-    padding: 0 16px;
+    padding: 16px;
     position: absolute;
     right: 0;
+    top: 0;
+    background-color: #4caf50;
+    /*cursor: pointer;*/
+    /*height: 100%*/
 }
 
 @media (min-width: 600px) {
