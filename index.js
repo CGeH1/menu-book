@@ -67,7 +67,7 @@ function substractQty(menuIndex, priceIndex) {
 
 function checkout() {
     if (totalPrice > 0) {
-        alert('Terimakasih atas pesanan anda: Rp. ' + (totalPrice * 1000).toLocaleString())
+        window.location.href=`order-confirmation/index.html?total-price=${totalPrice}` ;
         reset();
     } else {
         alert('Pesan dulu minimal 1 menu')
@@ -81,7 +81,7 @@ function reset(){
        document.getElementById("qty")
 
        for (let i = 0; i < menus.length; i++) {
-        cart.push([0, 0])
+        cart.push([0, 0]);
     }
     
     let menuArea = "";
