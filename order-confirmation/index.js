@@ -10,7 +10,7 @@ for (let i = 0; i < cart.length; i++) {
     const e = cart[i];
     
     if(e[0]>1 || e[1] > 1) {
-        content += `<div>Menu ${i+1}: ${e} </div>`;
+        content += `<div>Menu ${menus[i].title}: ${e} </div>`;
     }
 
 
