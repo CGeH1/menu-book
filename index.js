@@ -21,7 +21,11 @@ function substractQty(menuIndex, priceIndex) {
 
 function checkout() {
     if (totalPrice > 0) {
-        window.location.href=`order-confirmation/index.html?total-price=${totalPrice}` ;
+        let url = 'order-confirmation/index.html?' ;
+        url += `total-price=${totalPrice}`;
+        url += `&cart=${JSON.stringify(cart)}`;
+
+        window.location.href = url;
         reset();
     } else {
         alert('Pesan dulu minimal 1 menu')
