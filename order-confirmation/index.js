@@ -10,7 +10,12 @@ for (let i = 0; i < cart.length; i++) {
     const e = cart[i];
 
     if (e[0] > 0) {
-        content += `<div>${e[0]} ${menus[i].title} (${menus[i].prices[0].label}): ${menus[i].prices[0].price}</div>`;
+        content += ```
+        <div class="row">
+            <div>
+                
+            ${e[0]} ${menus[i].title} ($
+        {menus[i].prices[0].label}): ${menus[i].prices[0].price}</div></div>```;
     }
 
     if (e[1] > 0) {

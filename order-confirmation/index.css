@@ -27,6 +27,35 @@ div.place-street {
     text-align: center;
 }
 
+div.divider {
+    font-size: 24px;
+    padding: 16px 0;
+}
+
+div table {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 36px;
+}
+
+div.ordered-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+div.row {
+    width: 100%;
+    flex-direction: flex;
+    justify-content: space-between;
+    
+}
+
+
+/**
 body {
     background-color: white;
 }
@@ -64,3 +93,4 @@ div.table {
     display: flex;
     flex-direction: column;
 }
+**/
