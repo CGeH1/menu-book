@@ -10,12 +10,13 @@ for (let i = 0; i < cart.length; i++) {
     const e = cart[i];
 
     if (e[0] > 0) {
-        content += `<div>${menus[i].title} (${menus[i].prices[0].label}): ${e[0]}</div>`;
+        content += `<div>${e[0]} ${menus[i].title} (${menus[i].prices[0].label}): ${menus[i].prices[0].price}</div>`;
     }
 
     if (e[1] > 0) {
-        content += `<div>${menus[i].title} (${menus[i].prices[1].label}): ${e[1]}</div>`;
+        content += `<div>${e[1]} ${menus[i].title} (${menus[i].prices[1].label}): ${menus[i].prices[1].price}</div>`;
     }
 }
 
 document.getElementById('outer').innerHTML = content
+
