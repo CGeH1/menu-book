@@ -30,17 +30,28 @@ div.place-street {
 div.divider {
     font-size: 24px;
     padding: 16px 0;
+    font-weight: 500;
 }
 
-div table {
+div.table {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 36px;
+    font-weight: bold;
 }
 
-div.ordered-menu {
+div.guest {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 16px 0;
+}
+
+div.ordered-menus {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,48 +60,50 @@ div.ordered-menu {
 
 div.row {
     width: 100%;
-    flex-direction: flex;
-    justify-content: space-between;
-    
-}
-
-
-/**
-body {
-    background-color: white;
-}
-
-div.order-bar {
-    font-size: 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-div.section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-div.header-text {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-div.table {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
     flex-direction: row;
+    display: flex;
     justify-content: space-between;
-    padding-bottom: 16px;
 }
 
-#outer {
+div.subtotal {
+    width: 100%;
+    flex-direction: row;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 16px;
 }
-**/
+
+div.service {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+}
+
+div.PB {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+}
+
+div.total {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+div.time {
+    padding: 16px;
+}
+
+div.thanks {
+    width: 100%;
+    display: flex;
+    padding: 16px;
+}
