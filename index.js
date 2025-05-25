@@ -1,70 +1,82 @@
-const params = new URLSearchParams(window.location.search);
-const totalPrice = parseInt(params.get('total-price')) * 1000;
-const cart = JSON.parse(params.get('cart'));
+let totalPrice = 0;
+let cart = [];
 
-const serviceCharge = totalPrice * 0.05;
-const pb1 = totalPrice * 0.1;
-const total = totalPrice + serviceCharge + pb1;
+reset();
 
-const date = new Date().toLocaleString('id-ID');
+function addQty(menuIndex, priceIndex) {
+    cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex] + 1;
+    totalPrice += menus[menuIndex].prices[priceIndex].price;
+    document.getElementById("checkout").innerHTML = "Rp. " + (totalPrice * 1000).toLocaleString();
+    document.getElementById("qty" + menuIndex + priceIndex).innerHTML = cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex];
+}
 
-let orderQty = 0;
-
-let content = '';
-
-for (let i = 0; i < cart.length; i++) {
-    const e = cart[i];
-
-    if (e[0] > 0) {
-        orderQty += e[0];
-        content += `
-        <div class="row">
-            <div>${e[0]} ${menus[i].title} (${menus[i].prices[0].label})</div>
-            <div>${(e[0] * menus[i].prices[0].price * 1000).toLocaleString()}</div>
-        </div>
-        `;
-    }
-
-    if (e[1] > 0) {
-        orderQty += e[1];
-        content += `
-        <div class="row">
-            <div>${e[1]} ${menus[i].title} (${menus[i].prices[1].label})</div>
-            <div>${(e[1] * menus[i].prices[1].price * 1000).toLocaleString()}</div>
-        </div>
-        `;
+function substractQty(menuIndex, priceIndex) {
+    if (cart[menuIndex][priceIndex] >= 1) {
+        cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex] - 1;
+        totalPrice -= menus[menuIndex].prices[priceIndex].price;
+        document.getElementById("checkout").innerHTML = "Rp. " + (totalPrice * 1000).toLocaleString();
+        document.getElementById("qty" + menuIndex + priceIndex).innerHTML = cart[menuIndex][priceIndex] = cart[menuIndex][priceIndex];
     }
 }
 
-document.getElementById('ordered-menus').innerHTML = content;
+function checkout() {
+    if (totalPrice > 0) {
+        let url = 'order-confirmation/index.html?' ;
+        url += `total-price=${totalPrice}`;
+        url += `&cart=${JSON.stringify(cart)}`;
 
-document.getElementById('subtotal').innerHTML = `
-    <div class="subtotal">
-        <div>Subtotal</div>
-        <div>${totalPrice.toLocaleString()}</div>
-    </div>
-`;
+        window.location.href = url;
+        reset();
+    } else {
+        alert('Pesan dulu minimal 1 menu')
+    }
+}
 
-document.getElementById('service').innerHTML = `
-    <div class="service">
-        <div>Serv 5%</div>
-        <div>${serviceCharge.toLocaleString()}</div>
-    </div>
-`;
+function reset(){
+    totalPrice = 0
+    cart = []
+       document.getElementById("checkout").innerHTML = "Rp. 0"
+       document.getElementById("qty")
 
-document.getElementById('PB').innerHTML = ` 
-    <div class="PB">
-        <div>PB 1 10%</div>
-        <div>${pb1.toLocaleString()}</div>
-    </div>
-`;
-
-document.getElementById('total').innerHTML = ` 
-    <div class="total">
-        <div>${orderQty} TOTAL</div>
-        <div>${total.toLocaleString()}</div>
-    </div>
-`;
-
-
-document.getElementById('time').innerHTML = date;
+       for (let i = 0; i < menus.length; i++) {
+        cart.push([0, 0]);
+    }
+    
+    let menuArea = "";
+    
+    for (let i = 0; i < menus.length; i++) {
+        const e = menus[i];
+        let menuPrices = "";
+    
+        for (let j = 0; j < e.prices.length; j++) {
+            const f = e.prices[j];
+            menuPrices += `
+                <div class="menu-price-row">
+                    <span class="price-description">${f.label}</span>
+                    <div class="price-and-qty">
+                        <span class="price">${f.price}</span>
+                        <button onclick="substractQty(${i},${j})">
+                            <img src="assets/circle-minus.png" width="16" height="16" alt="minus-circle" />
+                        </button>
+                        <span class="qty" id="qty${i}${j}">0</span>
+                        <button onclick="addQty(${i},${j})">
+                            <img src="assets/circle-plus.png" width="16" height="16" alt="plus-circle" />
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    
+        menuArea += `
+            <div class="menu-tile">
+                <div class="menu-photo">
+                    <img src="${e.photoUrl}" alt="${e.title}">
+                </div>
+                <div class="menu-tile-name">${e.title}</div>
+                <div class="menu-tile-description">${e.description}</div>
+            ${menuPrices}
+            </div>
+        `
+    }
+    document.getElementById("menu-area").innerHTML = menuArea;
+}
